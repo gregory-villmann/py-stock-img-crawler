@@ -19,7 +19,7 @@ with open(stocks, 'r') as file:
     urls = file.read().splitlines()
 
 for url in urls:
-    if url.strip():
+    if url.strip() and 'Not found for' not in url:
         success = download_svg(url)
         if success:
             print(f"Downloaded: {url}")
